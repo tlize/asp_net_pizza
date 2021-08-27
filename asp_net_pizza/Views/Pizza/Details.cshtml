@@ -1,0 +1,14 @@
+﻿@model asp_net_pizza.Models.Pizza
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    @Html.Partial("_Pizza", Model)
+</div>
+<p>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

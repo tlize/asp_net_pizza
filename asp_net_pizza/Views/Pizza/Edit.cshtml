@@ -1,0 +1,84 @@
+﻿@model asp_net_pizza.Models.Pizza
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@Html.Partial("_Pizza", Model)
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    List<asp_net_pizza.Models.Pate> pates = (List<asp_net_pizza.Models.Pate>)TempData["pates"];
+    List<asp_net_pizza.Models.Ingredient> ingredients = (List<asp_net_pizza.Models.Ingredient>)TempData["ingredients"];
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <label class = "control-label col-md-2">
+            Nouveau nom : 
+        </label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            @foreach (var ingredient in ingredients)
+            {
+                <div class="checkbox-inline">
+                    @foreach (var ing in Model.Ingredients)
+                    {
+                        if (ingredient.Nom == ing.Nom)
+                        {
+                            <input type="checkbox" name="@ingredient.Nom" id="@ingredient.Id" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="@ingredient.Nom" id="@ingredient.Id" />
+                        }
+                    }
+                    <label for="@ingredient.Id">@ingredient.Nom</label>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="pate">Pâte</label>
+            <select name="pate">
+                @{
+                    foreach (var pate in pates)
+                    {
+                        if (pate.Nom == Model.Pate.Nom)
+                        {
+                            <option value="@pate.Nom" selected>@pate.Nom</option>
+                        }
+                        else
+                        {
+                            <option value="@pate.Nom">@pate.Nom</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
