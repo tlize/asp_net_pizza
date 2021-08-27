@@ -1,4 +1,4 @@
-﻿@model asp_net_pizza.Models.Pizza
+﻿@model BO.Pizza
 
 @{
     ViewBag.Title = "Edit";
@@ -10,8 +10,8 @@
 {
     @Html.AntiForgeryToken()
 
-    List<asp_net_pizza.Models.Pate> pates = (List<asp_net_pizza.Models.Pate>)TempData["pates"];
-    List<asp_net_pizza.Models.Ingredient> ingredients = (List<asp_net_pizza.Models.Ingredient>)TempData["ingredients"];
+    List<BO.Pate> pates = (List<BO.Pate>)TempData["pates"];
+    List<BO.Ingredient> ingredients = (List<BO.Ingredient>)TempData["ingredients"];
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
