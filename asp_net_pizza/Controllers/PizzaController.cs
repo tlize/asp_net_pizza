@@ -34,11 +34,11 @@ namespace asp_net_pizza.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(Pizza pizza)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                TempData["msg"] = "nouvelle pizza : " + pizza.Nom;
+                TempData["msg"] = "nouvelle pizza : " + collection["Nom"] + ", pâte : " + collection["Pate"];
                 return RedirectToAction("Index");
             }
             catch
@@ -60,11 +60,11 @@ namespace asp_net_pizza.Controllers
         // POST: Pizza/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Pizza pizza)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                TempData["msg"] = "nouveau nom : " + pizza.Nom;
+                TempData["msg"] = "nouveau nom : " + collection["Nom"] + ", pâte : " + collection["pate"];
                 return RedirectToAction("Index");
             }
             catch
@@ -84,7 +84,7 @@ namespace asp_net_pizza.Controllers
         // POST: Pizza/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Pizza pizza)
+        public ActionResult Delete(Pizza pizza, FormCollection collection)
         {
             try
             {

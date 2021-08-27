@@ -32,7 +32,7 @@
             foreach (var ingredient in ingredients)
             {
                 <div class="checkbox-inline">
-                    <input type="checkbox" name="@ingredient.Nom" id="@ingredient.Id" />
+                    <input type="checkbox" name="@ingredient.Nom" id="@ingredient.Id"/>
                     <label for="@ingredient.Id">@ingredient.Nom</label>
                 </div>
             }
@@ -45,7 +45,7 @@
             @{ 
                 foreach (var pate in pates)
                 {
-                    <option value="@pate.Nom">@pate.Nom</option>
+                    <option value="@pate.Id">@pate.Nom</option>
                 }
             }
         </select>
