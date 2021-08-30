@@ -1,0 +1,30 @@
+﻿@model TPPizzaENI.Models.DetailsPizza
+
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza.Pate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.Pate.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ListeIngredients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListeIngredients)
+        </dd>
+
+    </dl>
+</div>

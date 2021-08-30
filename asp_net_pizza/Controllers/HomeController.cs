@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace asp_net_pizza.Controllers
+namespace TPPizzaENI.Controllers
 {
     public class HomeController : Controller
     {

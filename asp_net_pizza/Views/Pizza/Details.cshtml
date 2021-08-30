@@ -1,14 +1,12 @@
-﻿@model BO.Pizza
+﻿@model TPPizzaENI.Models.DetailsPizza
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Détails de ma pizza";
 }
 
-<div>
-    @Html.Partial("_Pizza", Model)
-</div>
+@Html.Partial("_DetailsPizza", Model)
+
 <p>
-    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Pizza.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
