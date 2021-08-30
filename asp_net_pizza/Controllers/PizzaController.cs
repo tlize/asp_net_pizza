@@ -11,13 +11,14 @@ namespace TPPizzaENI.Controllers
     {
         private static List<Pizza> pizzaList = new List<Pizza>()
         {
-            new Pizza() { Id = 1, Nom = "Pizza1" },
-            new Pizza() { Id = 2, Nom = "Pizza2" },
-            new Pizza() { Id = 3, Nom = "Pizza3" },
-            new Pizza() { Id = 4, Nom = "Pizza4" },
-            new Pizza() { Id = 5, Nom = "Pizza5" },
-            new Pizza() { Id = 6, Nom = "Pizza6" },
-            new Pizza() { Id = 7, Nom = "Pizza7" },
+            new Pizza{ Id = 1, Nom = "Super Pizza", Pate = Pizza.GetPates().FirstOrDefault(),
+                Ingredients = Pizza.GetIngredients().Take(2).ToList() },
+            new Pizza{ Id = 2, Nom = "Trop Bonne Pizza", Pate = Pizza.GetPates().Skip(1).FirstOrDefault(),
+                Ingredients = Pizza.GetIngredients().Skip(2).Take(2).ToList() },
+            new Pizza{ Id = 3, Nom = "Pizza de Champion", Pate = Pizza.GetPates().Skip(2).FirstOrDefault(),
+                Ingredients = Pizza.GetIngredients().Skip(4).Take(2).ToList() },
+            new Pizza{ Id = 4, Nom = "Pizza Bof", Pate = Pizza.GetPates().Skip(3).FirstOrDefault(),
+                Ingredients = Pizza.GetIngredients().Skip(6).Take(2).ToList() }
         };
 
         private Pizza GetPizza(int id)
